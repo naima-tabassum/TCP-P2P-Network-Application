@@ -1,200 +1,412 @@
-
 # TCP-Based Peer-to-Peer (P2P) Network Application
+
+A Python-based TCP Peer-to-Peer (P2P) Network Application with a graphical user interface developed using Tkinter. The application enables multiple peers to communicate directly, exchange text messages, and transfer files without relying on a central messaging server.
+
+This project demonstrates practical implementation of TCP socket programming, multithreading, JSON-based communication protocols, and file handling in Python.
+
+---
 
 ## 1. Project Overview
 
-This project is a Python-based Peer-to-Peer (P2P) Network Application developed using TCP sockets and Tkinter.
+The TCP-Based Peer-to-Peer (P2P) Network Application is a desktop application that allows multiple users to establish direct network connections.
 
-The application allows multiple peers to communicate directly over a network. Each peer can send and receive text messages and transfer different types of files.
+Each peer can operate as both a server and a client. A peer listens for incoming connections while also being able to connect to other peers using their IP addresses and port numbers.
 
-A peer can act as both a server and a client, allowing two-way communication without a central messaging server.
+The application provides a simple graphical interface for managing peer connections, exchanging text messages, and transferring files.
 
-## 2. Project Features
+### Project Objectives
 
-- TCP-based peer-to-peer communication
-- Graphical User Interface (GUI) using Tkinter
-- Start and Stop Peer functionality
-- Connect to another peer using IP address and port
-- Multiple peer connections
-- Two-way text messaging
-- File transfer between connected peers
-- Support for JPG, PNG, PDF, ZIP, audio, and video files
-- Chunk-based binary file transfer
-- HELLO and HELLO_ACK handshake
-- JSON-based message protocol
-- Four-byte length-prefixed messages
-- Background threads for network communication
-- Connected peers list
-- Peer disconnection notifications
-- Error handling for invalid ports and failed connections
-- Automatic saving of received files in the downloads folder
-- Duplicate filename handling
+- Implement direct peer-to-peer communication using TCP sockets.
+- Develop a user-friendly graphical interface using Tkinter.
+- Support multiple peer connections.
+- Enable two-way text messaging.
+- Implement file transfer using binary data chunks.
+- Handle peer disconnections and connection errors.
+- Demonstrate communication between three peers.
+
+---
+
+## 2. Key Features
+
+### Peer Connection Management
+
+- Start and stop a peer from the graphical interface.
+- Connect to another peer using an IP address and port number.
+- Maintain multiple peer connections.
+- Display connected peers in a list.
+- Detect and handle peer disconnections.
+- Restart and reconnect a stopped peer.
+
+### Text Messaging
+
+- Send and receive text messages between connected peers.
+- Select a specific peer before sending a message.
+- Display sent and received messages in the chat area.
+- Support two-way communication.
+
+### File Transfer
+
+- Transfer files directly between connected peers.
+- Support TXT, JPG, PNG, PDF, ZIP, MP3, WAV, MP4, and other file types.
+- Transfer file content as binary data in chunks.
+- Save received files in the `downloads` folder.
+- Avoid overwriting existing files with duplicate names.
+
+### Graphical User Interface
+
+- Peer name and listening port inputs.
+- Start Peer and Stop Peer buttons.
+- Remote peer connection controls.
+- Connected peers list.
+- Chat history and message input.
+- Send Message and Send File controls.
+- Connection status messages.
+
+### Error Handling
+
+- Invalid port input.
+- Failed connection attempts.
+- Sending without selecting a connected peer.
+- Peer disconnections.
+- File transfer and network errors.
+
+---
 
 ## 3. Technologies Used
 
-- Programming Language: Python
-- GUI Framework: Tkinter
-- Networking: TCP Sockets
-- Message Format: JSON
-- Concurrency: Python Threading
-- File Handling: Python Standard Library
+| Technology | Purpose |
+|---|---|
+| Python 3 | Main programming language |
+| Tkinter | Graphical user interface |
+| TCP Sockets | Network communication |
+| JSON | Structured message exchange |
+| Threading | Concurrent peer communication |
+| File Handling | Sending and receiving files |
+| Visual Studio Code | Development environment |
+
+The application uses Python standard library modules and does not require additional third-party Python packages.
+
+---
 
 ## 4. Project Structure
 
-P2P_Network/
-    main.py
-    p2p_node.py
-    protocol.py
-    requirements.txt
-    README.md
-    downloads/
+```text
+TCP-P2P-Network-Application/
+│
+├── main.py
+├── p2p_node.py
+├── protocol.py
+├── requirements.txt
+├── README.md
+│
+└── screenshots/
+    ├── README.md
+    ├── 01_Alice_GUI.png
+    ├── 02_Peer_Connection.png
+    ├── 03_Text_Chat.png
+    ├── 04_File_Transfer.png
+    ├── 05_Peer_Disconnection.png
+    └── 06_Three_Peer_Connection.png
+```
 
-## 5. File Descriptions
+The `downloads` folder is created automatically when received files need to be saved.
 
-### main.py
+### File Descriptions
 
-Creates the graphical user interface and manages user interactions, including starting and stopping peers, connecting to other peers, sending messages, and selecting files.
+**`main.py`**
 
-### p2p_node.py
+Implements the Tkinter graphical user interface and manages user interactions, including peer startup, connections, text messaging, file selection, and peer shutdown.
 
-Manages TCP server and client connections, connected peers, message exchange, file transfer, and peer disconnections.
+**`p2p_node.py`**
 
-### protocol.py
+Handles TCP socket connections, server operations, peer management, incoming messages, outgoing messages, file transfer, and disconnection handling.
 
-Implements the communication protocol, including HELLO, HELLO_ACK, TEXT, and FILE messages. It also handles JSON message framing and binary file transfer in chunks.
+**`protocol.py`**
 
-### requirements.txt
+Defines the communication protocol and handles JSON message formatting, length-prefixed message transmission, and binary file transfer.
 
-Documents the project's Python dependency requirements.
+**`requirements.txt`**
 
-### downloads/
+Documents the Python dependency requirements.
 
-Stores files received from other peers. The folder is created automatically when needed.
+**`screenshots/`**
 
-## 6. Requirements
+Contains screenshots demonstrating the application's features and testing results.
 
-- Python 3
-- Tkinter support
-- A computer running Windows, Linux, or macOS
-- Network connectivity between peers
+---
+
+## 5. System Requirements
+
+Before running the application, make sure your computer has:
+
+- Python 3 installed.
+- Tkinter available in the Python installation.
+- A terminal or command prompt.
+- Visual Studio Code or another Python-compatible development environment (optional).
 
 No additional third-party Python packages are required.
 
-## 7. How to Run the Application
+---
 
-1. Open the project folder in Visual Studio Code or a terminal.
+## 6. Installation and Setup
 
-2. Run the following command:
+### Step 1: Download the Project
 
-   python main.py
+Open the GitHub repository:
 
-3. Enter a peer name and listening port.
+https://github.com/naima-tabassum/TCP-P2P-Network-Application
 
-4. Click "Start Peer".
+Click:
 
-5. Open another instance of the application.
+**Code → Download ZIP**
 
-6. Enter a different peer name and port, then click "Start Peer".
+Extract the downloaded ZIP file to a folder on your computer.
 
-7. Enter the remote peer's IP address and listening port.
+Alternatively, clone the repository using Git:
 
-8. Click "Connect".
+```bash
+git clone https://github.com/naima-tabassum/TCP-P2P-Network-Application.git
+```
 
-9. Select a connected peer from the list.
+### Step 2: Open the Project Folder
 
-10. Send a text message using the message box and "Send" button.
+Open the extracted project folder in Visual Studio Code or a terminal.
 
-11. To transfer a file, click "Send File" and select the file.
+If you cloned the repository, enter the project directory:
 
-12. To stop a peer, click "Stop Peer".
+```bash
+cd TCP-P2P-Network-Application
+```
 
-## 8. Example: Connecting Three Peers
+### Step 3: Run the Application
 
-For testing on the same computer, use the following configuration:
+Execute:
 
-| Peer | IP Address | Listening Port |
-|------|------------|----------------|
+```bash
+python main.py
+```
+
+If your system uses `python3` instead of `python`, run:
+
+```bash
+python3 main.py
+```
+
+The P2P Network Application GUI should open.
+
+---
+
+## 7. How to Use the Application
+
+### Step 1: Start a Peer
+
+1. Open the application.
+2. Enter a peer name.
+3. Enter an available listening port.
+4. Click **Start Peer**.
+
+The application will start listening for incoming connections.
+
+### Step 2: Start Another Peer
+
+Open another instance of the application.
+
+Enter a different peer name and listening port.
+
+For example:
+
+| Peer | IP Address | Port |
+|---|---|---|
 | Alice | 127.0.0.1 | 5000 |
 | Bob | 127.0.0.1 | 5001 |
 | Charlie | 127.0.0.1 | 5002 |
 
-Start all three peers.
+Each peer must use a different listening port when running on the same computer.
 
-Connect Bob to Alice using port 5000.
+### Step 3: Connect Two Peers
 
-Connect Charlie to Alice using port 5000.
+For example, to connect Bob to Alice:
 
-Connect Charlie to Bob using port 5001.
+1. Open Bob's GUI.
+2. Enter Alice's IP address: `127.0.0.1`.
+3. Enter Alice's listening port: `5000`.
+4. Click **Connect**.
 
-After successful connections, each peer can communicate with the other connected peers.
+After successful connection, Alice will appear in Bob's connected peers list, and Bob will appear in Alice's connected peers list.
 
-Note: 127.0.0.1 is the loopback address and is used when testing multiple peers on the same computer. For communication between different computers, use the reachable IP address of the destination computer.
+### Step 4: Send a Text Message
 
-## 9. Communication Protocol
+1. Select a peer from the Connected Peers list.
+2. Enter a message in the message box.
+3. Click **Send**.
 
-The application uses TCP sockets.
+The receiving peer will see the message in the chat area.
 
-A peer begins communication by sending a HELLO message. The receiving peer responds with HELLO_ACK.
+### Step 5: Transfer a File
 
-Text messages are exchanged using the TEXT message type.
+1. Select a connected peer.
+2. Click **Send File**.
+3. Choose a file from your computer.
+4. Wait for the transfer to complete.
 
-File transfers begin with a FILE metadata message containing the filename and file size. The file content is then transmitted as raw binary data in chunks.
+The receiving peer will save the file in the `downloads` folder.
 
-JSON messages use a four-byte length prefix to identify the message size.
+### Step 6: Stop a Peer
 
-## 10. File Transfer
+Click **Stop Peer** to stop the local peer.
 
-The application supports transferring different file types, including:
+Connected peers will be disconnected, and other peers can continue communicating with their remaining connections.
 
-- Text files
-- JPG and PNG images
-- PDF documents
-- ZIP archives
-- Audio files
-- Video files
+A stopped peer can be restarted and reconnected.
 
-File data is transferred in 64 KB chunks.
+---
 
-Received files are saved inside the downloads folder.
+## 8. Communication Protocol
 
-If a file with the same name already exists, the application creates a new filename to avoid overwriting the existing file.
+The application uses TCP sockets for reliable, connection-oriented communication.
 
-## 11. Testing and Results
+A custom communication protocol is implemented using JSON messages and binary file transfer.
 
-The application was manually tested using three peers: Alice, Bob, and Charlie.
+### Message Types
 
-The following tests were completed successfully:
+| Message Type | Purpose |
+|---|---|
+| `HELLO` | Initiates communication between peers |
+| `HELLO_ACK` | Acknowledges the connection |
+| `TEXT` | Transfers text messages |
+| `FILE` | Transfers file metadata before binary data |
 
-- Starting and stopping peers
-- Restarting a stopped peer
-- Connecting two peers
-- Connecting three peers
-- Two-way text messaging
-- Sending JPG and PDF files
-- Transferring PNG, ZIP, audio, and video files
-- Transferring files larger than 5 MB
-- Handling invalid port input
-- Handling failed connection attempts
-- Handling attempts to send without selecting a peer
-- Detecting peer disconnections
-- Maintaining communication between other peers after one peer stops
-- Reconnecting a peer after restarting
-- Sending messages after reconnection
+### Message Framing
 
-These tests were performed locally using the loopback address (127.0.0.1).
+JSON messages use a four-byte length prefix.
 
-## 12. Limitations
+The first four bytes indicate the size of the JSON message. The receiver then reads the corresponding message data.
 
-- Peers must be manually connected using their IP addresses and ports.
-- Stopped peers do not automatically reconnect after restarting.
-- Transfers interrupted by a disconnection may leave incomplete files.
-- Communication is not encrypted.
-- The application was tested locally; operation across different computers or networks has not yet been verified.
+### File Transfer Process
+
+1. The sender selects a file.
+2. File metadata is sent using a `FILE` message.
+3. The receiver reads the metadata.
+4. File content is transmitted as raw binary data.
+5. The data is processed in 64 KB chunks.
+6. The receiver saves the file in the `downloads` folder.
+
+This approach supports transferring different file types without converting the entire file into JSON.
+
+---
+
+## 9. Application Screenshots
+
+The following screenshots demonstrate the main features of the TCP-Based P2P Network Application.
+
+### 9.1 Main GUI
+
+The main graphical interface provides peer startup controls, connection settings, a connected peers list, and messaging features.
+
+![Main GUI](screenshots/01_Alice_GUI.png)
+
+### 9.2 Peer Connection
+
+This screenshot demonstrates a successful TCP connection between Alice and Bob.
+
+![Peer Connection](screenshots/02_Peer_Connection.png)
+
+### 9.3 Two-Way Text Chat
+
+Alice and Bob exchange text messages through the application.
+
+![Text Chat](screenshots/03_Text_Chat.png)
+
+### 9.4 File Transfer
+
+A file is transferred between connected peers, and the receiving peer displays the corresponding transfer information.
+
+![File Transfer](screenshots/04_File_Transfer.png)
+
+### 9.5 Peer Disconnection
+
+The application detects a peer disconnection and updates the connected peers list.
+
+![Peer Disconnection](screenshots/05_Peer_Disconnection.png)
+
+### 9.6 Three-Peer Connection
+
+Alice, Bob, and Charlie establish multiple peer-to-peer connections.
+
+![Three-Peer Connection](screenshots/06_Three_Peer_Connection.png)
+
+---
+
+## 10. Testing and Results
+
+The application was manually tested using multiple instances on the same computer.
+
+Three peers were used during testing:
+
+- Alice — Port 5000
+- Bob — Port 5001
+- Charlie — Port 5002
+
+### Functional Testing
+
+| Test Case | Result |
+|---|---|
+| Start Peer | Passed |
+| Stop Peer | Passed |
+| Restart Peer | Passed |
+| Connect Two Peers | Passed |
+| Connect Three Peers | Passed |
+| Two-Way Text Messaging | Passed |
+| JPG File Transfer | Passed |
+| PNG File Transfer | Passed |
+| PDF File Transfer | Passed |
+| ZIP File Transfer | Passed |
+| Audio File Transfer | Passed |
+| Video File Transfer | Passed |
+| File Transfer Larger Than 5 MB | Passed |
+| Invalid Port Handling | Passed |
+| Failed Connection Handling | Passed |
+| Sending Without Selecting a Peer | Passed |
+| Peer Disconnection Handling | Passed |
+| Communication Between Remaining Peers | Passed |
+| Reconnection After Restart | Passed |
+| Text Messaging After Reconnection | Passed |
+
+All listed tests were completed during local testing using the loopback address `127.0.0.1`.
+
+---
+
+## 11. Limitations
+
+- Peer connections require manually entering an IP address and port number.
+- The application does not provide automatic peer discovery.
+- Disconnected peers must be reconnected manually.
+- Network communication is not encrypted.
+- Interrupted file transfers may leave incomplete files.
+- The application was tested locally on one computer. Communication across separate computers or networks has not yet been verified.
+
+---
+
+## 12. Future Improvements
+
+Possible improvements include:
+
+- Automatic peer discovery.
+- Encrypted communication.
+- File transfer progress indicators.
+- Improved handling of interrupted transfers.
+- Additional connection management features.
+
+These are potential future enhancements and are not part of the current implementation.
+
+---
 
 ## 13. Conclusion
 
-This project demonstrates the implementation of a TCP-based peer-to-peer communication system using Python.
+This project demonstrates the development of a TCP-based Peer-to-Peer Network Application using Python.
 
-It provides practical experience with socket programming, multithreading, GUI development, message protocols, and binary file transfer.
+Through this project, practical experience was gained in socket programming, multithreading, JSON-based communication, file handling, and graphical interface development.
 
-The application successfully supports direct communication between multiple peers through a simple graphical interface.
+The application successfully supports direct communication between multiple peers, two-way text messaging, file transfer, peer disconnection handling, and reconnection through a simple Tkinter interface.
+
+The completed application provides a practical foundation for understanding peer-to-peer networking and TCP socket communication.
