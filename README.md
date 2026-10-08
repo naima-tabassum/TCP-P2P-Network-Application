@@ -2,7 +2,7 @@
 
 A Python-based TCP Peer-to-Peer (P2P) Network Application with a graphical user interface developed using Tkinter. The application enables multiple peers to communicate directly, exchange text messages, and transfer files without relying on a central messaging server.
 
-This project demonstrates practical implementation of TCP socket programming, multithreading, JSON-based communication protocols, and file handling in Python.
+This project demonstrates the practical implementation of TCP socket programming, multithreading, JSON-based communication protocols, and file handling in Python.
 
 ---
 
@@ -17,7 +17,7 @@ The application provides a simple graphical interface for managing peer connecti
 ### Project Objectives
 
 - Implement direct peer-to-peer communication using TCP sockets.
-- Develop a user-friendly graphical interface using Tkinter.
+- Develop a graphical user interface using Tkinter.
 - Support multiple peer connections.
 - Enable two-way text messaging.
 - Implement file transfer using binary data chunks.
@@ -303,37 +303,37 @@ The following screenshots demonstrate the main features of the TCP-Based P2P Net
 
 The main graphical interface provides peer startup controls, connection settings, a connected peers list, and messaging features.
 
-![Main GUI](screenshots/01_Alice_GUI.png)
+<img src="screenshots/01_Alice_GUI.png" alt="Main GUI" width="650">
 
 ### 9.2 Peer Connection
 
 This screenshot demonstrates a successful TCP connection between Alice and Bob.
 
-![Peer Connection](screenshots/02_Peer_Connection.png)
+<img src="screenshots/02_Peer_Connection.png" alt="Peer Connection" width="650">
 
 ### 9.3 Two-Way Text Chat
 
 Alice and Bob exchange text messages through the application.
 
-![Text Chat](screenshots/03_Text_Chat.png)
+<img src="screenshots/03_Text_Chat.png" alt="Text Chat" width="650">
 
 ### 9.4 File Transfer
 
 A file is transferred between connected peers, and the receiving peer displays the corresponding transfer information.
 
-![File Transfer](screenshots/04_File_Transfer.png)
+<img src="screenshots/04_File_Transfer.png" alt="File Transfer" width="650">
 
 ### 9.5 Peer Disconnection
 
 The application detects a peer disconnection and updates the connected peers list.
 
-![Peer Disconnection](screenshots/05_Peer_Disconnection.png)
+<img src="screenshots/05_Peer_Disconnection.png" alt="Peer Disconnection" width="650">
 
 ### 9.6 Three-Peer Connection
 
 Alice, Bob, and Charlie establish multiple peer-to-peer connections.
 
-![Three-Peer Connection](screenshots/06_Three_Peer_Connection.png)
+<img src="screenshots/06_Three_Peer_Connection.png" alt="Three-Peer Connection" width="650">
 
 ---
 
