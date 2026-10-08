@@ -1,0 +1,4 @@
+
+# No external Python packages are required.
+# This project uses Python standard library modules.
+# Tkinter must be available in the Python installation.
